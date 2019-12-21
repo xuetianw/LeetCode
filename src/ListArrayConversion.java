@@ -43,5 +43,7 @@ public class ListArrayConversion {
         for (String listItem : stringList) {
             System.out.println(listItem);
         }
+        char c = '1';
+        int a=Integer.parseInt(String.valueOf(c));
     }
 }
