@@ -52,6 +52,17 @@ class BFS {
 
     // Driver method to
     public static void main(String args[]) {
+        new Animal() {
+            @Override
+            public void animalSound() {
+
+            }
+
+            @Override
+            public void run() {
+
+            }
+        };
 
         BFS g = new BFS(4);
 
