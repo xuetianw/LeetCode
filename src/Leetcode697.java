@@ -25,7 +25,7 @@ public class Leetcode697 {
         }
 
     public static void main(String[] args) {
-        Solution697 solution697 = new Solution697();
+        Leetcode697 solution697 = new Leetcode697();
         int[][] twoDaRRAY = new int [][]{{1,2}, {3,4}};
 //        solution697.findShortestSubArray();
     }
