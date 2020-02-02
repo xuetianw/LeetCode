@@ -14,8 +14,17 @@ public class Leetcode973 {
         return res;
     }
 
+
+    public void test(int[] point) {
+        point = new int[] {1};
+    }
+
     public static void main(String[] args) {
         Leetcode973 leetcode973 = new Leetcode973();
-        leetcode973.kClosest(new int[][] {{1,3},{-2,2}}, 1);
+//        leetcode973.kClosest(new int[][] {{1,3},{-2,2}}, 1);
+        int[] arr = new int[]{1, 2, 3};
+        leetcode973.test(arr);
+
+        System.out.println(arr);
     }
 }

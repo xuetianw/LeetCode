@@ -13,8 +13,7 @@ public class Leetcode1108 {
 
         for (int i = index_list.size() - 1; i >= 0; i--) {
             int location = index_list.get(i);
-            address = address.substring(0, location)
-                    + "[.]" + address.substring(location + 1, address.length());
+            address = String.format(address.substring(0, location), "[.]", address.substring(location + 1));
         }
         return address;
     }

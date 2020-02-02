@@ -28,5 +28,9 @@ public class Sort {
 //
 //        System.out.printf("Modified arr[] : %s",
 //                Arrays.toString(arr));
+
+        int[] arr = {13, 7, 6, 45, 21, 9, 101, 102};
+        //        Arrays.sort(arr, (arr1, arr2) ->
+//                Integer.compare(arr1[0], arr2[0]));
     }
 }

@@ -1,19 +1,18 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Leetcode1207 {
     public boolean uniqueOccurrences(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : arr) {
-            map.put(num, map.getOrDefault(num, 0));
+        for (int ele : arr) {
+            map.put(ele, map.getOrDefault(ele, 0) + 1);
         }
-        List<Integer> occur_list = (List<Integer>) map.values();
-        Collections.sort(occur_list);
-        for (int i = 0; i < occur_list.size() - 1; i++) {
-            if (occur_list.get(i).equals(occur_list.get(i + 1))) {
+
+        Set<Integer> set = new HashSet<>();
+        for (int count : map.values()) {
+            if (set.contains(count)) {
                 return false;
+            } else {
+                set.add(count);
             }
         }
         return true;

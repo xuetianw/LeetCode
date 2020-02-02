@@ -6,27 +6,34 @@ public class Leetcode1086 {
     public int[][] highFive(int[][] items) {
         Map<Integer, PriorityQueue<Integer>> t_map = new TreeMap<>();
         for (int[] arr : items) {
-            if (!t_map.containsKey(arr[0])) {
-                PriorityQueue<Integer> pq= new PriorityQueue<>();
-                pq.add(arr[1]);
-                t_map.put(arr[0], pq);
+            int student_num = arr[0];
+            if (t_map.containsKey(student_num)) {
+                PriorityQueue PQ = t_map.get(student_num);
+                PQ.add(arr[1]);
+                if (PQ.size() > 5) {
+                    PQ.remove();
+                }
+                t_map.put(student_num, PQ);
             } else {
-                PriorityQueue<Integer> pq = t_map.get(arr[0]);
-                pq.add(arr[1]);
-                if (pq.size() > 5) pq.remove();
+                PriorityQueue<Integer> PQ = new PriorityQueue<>();
+                PQ.add(arr[1]);
+                t_map.put(student_num, PQ);
             }
         }
-        int[][] arr = new int[t_map.size()][2];
+        int[][] res = new int[t_map.size()][2];
         for (int key : t_map.keySet()) {
-            arr[key - 1] [0] = key;
-            PriorityQueue<Integer> pq = t_map.get(key);
+            res[key - 1][0] = key;
+            PriorityQueue<Integer> PQ = t_map.get(key);
+            int PQ_size = PQ.size();
             int sum = 0;
-            while (pq.size() != 0) {
-                sum += pq.remove();
+            while (PQ.size() != 0) {
+                sum += PQ.remove();
             }
-            arr[key - 1] [1] = sum / 5;
+
+            int ave_score = sum / PQ_size;
+            res[key - 1][1] = ave_score;
         }
-        return arr;
+        return res;
     }
     public static void main(String[] args) {
 
