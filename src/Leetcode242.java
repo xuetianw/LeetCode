@@ -2,40 +2,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Leetcode242 {
+    int[] base = new int['z' - 'a' + 1];
     public boolean isAnagram(String s, String t) {
-        int len = s.length();
-        if (len != t.length()) return false;
+        if (s.length() != t.length()) {
+            return false;
+        }
 
-        Map<Character, Integer> s_map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            char ele = s.charAt(i);
-            if (!s_map.containsKey(ele)) {
-                s_map.put(ele, 0);
-            } else {
-                s_map.put(ele, s_map.get(ele) + 1);
-            }
+            base[s.charAt(i) - 'a']++;
         }
-        Map<Character, Integer> t_map = new HashMap<>();
         for (int i = 0; i < t.length(); i++) {
-            char ele = t.charAt(i);
-            if (!t_map.containsKey(ele)) {
-                t_map.put(ele, 0);
-            } else {
-                t_map.put(ele, t_map.get(ele) + 1);
-            }
+            base[t.charAt(i) - 'a']--;
         }
-        // System.out.println(s_map);
-        // System.out.println(t_map);
 
 
-        for (char key : s_map.keySet()) {
-            if (!(t_map.get(key).equals(s_map.get(key))) ) {
-                // System.out.println("key: " + key + "t_map.get(key): " + t_map.get(key)
-                //                    + "s_map.get(s_map): " + s_map.get(s_map));
-//                System.out.println(key);
-//
-//                System.out.println(t_map.get('a'));
-//                System.out.println(s_map.get('a'));
+        for (int num : base) {
+            if (num != 0) {
                 return false;
             }
         }
