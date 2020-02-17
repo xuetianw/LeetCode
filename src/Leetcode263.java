@@ -46,11 +46,7 @@ public class Leetcode263 {
             }
         }
 
-        if (num == 1) {
-            return true;
-        }
-
-        return false;
+        return num == 1;
     }
 
     public static void main(String[] args) {
