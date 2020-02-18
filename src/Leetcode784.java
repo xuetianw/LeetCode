@@ -3,29 +3,35 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Leetcode784 {
-    List<String> list = new ArrayList<>();
-    private void dfs(char[] chars, int i) {
-        if (chars.length == i) {
-            list.add(new String(chars));
-        } else {
-            char ch = chars[i];
-            if ('a' <= ch && ch <= 'z') {
-                dfs(chars, i + 1);
-                chars[i] -= 'a' - 'A';
-                dfs(chars, i + 1);
-            } else if ('A' <= ch && ch <= 'Z') {
-                dfs(chars, i + 1);
-                chars[i] += 'a' - 'A';
-                dfs(chars, i + 1);
-            } else {
-                dfs(chars, i + 1);
-            }
-        }
-    }
+    private List<String> res;
 
     public List<String> letterCasePermutation(String S) {
-        dfs(S.toCharArray(), 0);
-        return list;
+        res = new ArrayList<>();
+        letterCasePermutationRec(S, 0, "");
+        return res;
+    }
+
+    void letterCasePermutationRec(String S, int index, String s) {
+        if (index == S.length()) {
+            res.add(s);
+            return;
+        }
+
+        char ch = S.charAt(index);
+
+        if (ch >= 'a' && ch <= 'z') {
+            letterCasePermutationRec(S, index + 1, s + ch);
+            ch -= 'a' - 'A';
+            letterCasePermutationRec(S, index + 1, s + ch);
+        }
+        else if (ch >= 'A' && ch <= 'Z') {
+            letterCasePermutationRec(S, index + 1, s + ch);
+            ch += 'a' - 'A';
+            letterCasePermutationRec(S, index + 1, s + ch);
+        }
+        else {
+            letterCasePermutationRec(S, index + 1, s + ch);
+        }
 
     }
 
