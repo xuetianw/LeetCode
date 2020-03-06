@@ -11,47 +11,23 @@ public class Leetcode21 {
 
     class Solution {
         public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-            ListNode listNode;
-            if (l1 == null) {
-                return l2;
-            } else if (l2 == null) {
-                return l1;
-            }
-            if(l1.val <= l2.val) {
-                listNode = new ListNode(l1.val);
-                l1 = l1.next;
-            } else {
-                listNode = new ListNode(l2.val);
-                l2 = l2.next;
-            }
-
-            ListNode current = listNode;
-
-            while (l1 != null || l2 != null) {
-                if (l1 == null) {
-                    while (l2 != null) {
-                        current.next = new ListNode(l2.val);
-                        current = current.next;
-                        l2 = l2.next;
-                    }
-                } else if(l2 == null) {
-                    while (l1 != null) {
-                        current.next = new ListNode(l1.val);
-                        current = current.next;
-                        l1 = l1.next;
-                    }
+            ListNode dummy_head = new ListNode(0);
+            ListNode cur = dummy_head;
+            while (l1 != null && l2 != null) {
+                int val;
+                if (l1.val > l2.val) {
+                    val = l2.val;
+                    l2 = l2.next;
                 } else {
-                    if (l1.val <= l2.val) {
-                        current.next = new ListNode(l1.val);
-                        current = current.next;
-                        l1 = l1.next;
-                    } else {
-                        current.next = new ListNode(l2.val);
-                        current = current.next;
-                        l2 = l2.next;
-                    }                }
+                    val = l1.val;
+                    l1 = l1.next;
+                }
+                cur.next = new ListNode(val);
+                cur = cur.next;
             }
-            return listNode;
+
+            cur.next = (l1 == null) ? l2 : l1;
+            return dummy_head.next;
         }
     }
 
