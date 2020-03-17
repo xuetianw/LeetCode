@@ -1,7 +1,9 @@
 package BinarySearch;
 
 public class Leetcode35 {
-    private int binarySearch(int[] arr, int l, int r, int x) {
+    private int binarySearch(int[] arr, int x) {
+        int l = 0;
+        int r = arr.length - 1;
         while (r >= l) {
             int mid = l + (r - l) / 2;
             if (arr[mid] == x) {
@@ -15,7 +17,7 @@ public class Leetcode35 {
         return l;
     }
     public int searchInsert(int[] nums, int target) {
-        return binarySearch(nums, 0, nums.length - 1, target);
+        return binarySearch(nums, target);
     }
 
     public static void main(String[] args) {
