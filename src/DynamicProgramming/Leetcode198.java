@@ -1,3 +1,5 @@
+package DynamicProgramming;
+
 public class Leetcode198 {
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;
