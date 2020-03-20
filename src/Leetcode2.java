@@ -1,4 +1,4 @@
-public class coding_problem2 {
+public class Leetcode2 {
     public static void main(String[] args) {
         int []arr = {10, 15, 3, 7};
         int product_of_all = 1;
