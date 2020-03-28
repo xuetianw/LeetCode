@@ -1,51 +1,34 @@
+package Array;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Leetcode15 {
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList();
+        for (int i = 0; i < nums.length - 2; i++) {
+            int fst_ele = nums[i];
+            int j = i + 1;
+            int k = nums.length - 1;
+            if (i > 0 && nums[i] == nums[i-1]) continue;
 
-        ArrayList <Integer> zeroList = new ArrayList();
-
-        zeroList.add(0);
-        zeroList.add(0);
-        zeroList.add(0);
-
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    int ele1 = nums[i];
-                    int ele2 = nums[j];
-                    int ele3 = nums[k];
-
-                    if ( ele1 + ele2 + ele3 == 0) {
-                        List <Integer>innerlist = new ArrayList();
-                        innerlist.add(ele1);
-                        innerlist.add(ele2);
-                        innerlist.add(ele3);
-                        if (result.size() == 0) {
-                            result.add(innerlist);
-                        } else if (ele1 == 0 && ele2 == 0 && ele3 == 0) {
-                            if (!result.contains(zeroList)) {
-                                result.add(zeroList);
-                            }
-                        } else {
-                            for (int t = 0; t < result.size(); t++) {
-                                List tempList = (result.get(t));
-                                if ((tempList.contains(ele1) && tempList.contains(ele2)
-                                        && tempList.contains(ele3) )) {
-                                    break;
-                                } else if (t == result.size() -1) {
-                                    result.add(innerlist);
-                                }
-                            }
-                        }
-
+            while (j < k) {
+                if (nums[i] + nums[j] + nums[k] == 0) {
+                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    while (j < k && nums[j] == nums[j + 1]) {
+                        j++;
+                        continue;
                     }
-                }
+                    j++;
+                    k--;
+                } else if (nums[i] + nums[j] + nums[k] < 0) j++;
+
+                else k--;
             }
         }
-        return result;
+        return res;
     }
 
     public static void main(String[] args) {

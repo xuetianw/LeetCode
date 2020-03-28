@@ -1,3 +1,5 @@
+package LInkedList;
+
 public class Leetcode21 {
 
     /**
