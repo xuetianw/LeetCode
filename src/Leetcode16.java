@@ -1,4 +1,4 @@
-public class Leet16 {
+public class Leetcode16 {
     public int threeSumClosest(int[] nums, int target) {
         int result = Math.abs(nums[0] + nums[1] + nums[2] - target);
         for (int i = 0; i < nums.length; i++) {
