@@ -1,11 +1,12 @@
+package Sort;
+
 import java.util.Arrays;
 
 public class Leetcode973 {
     public int[][] kClosest(int[][] points, int K) {
-        Arrays.sort(points, (point1, point2) -> {
-            return ((point1[0] * point1[0] + point1[1] * point1[1]) -
-                    - (point2[0] * point2[0] +  point2[1] * point2[1]));
-        });
+        Arrays.sort(points, (point1, point2) ->
+             (point1[0] * point1[0] + point1[1] * point1[1]) -
+                    (point2[0] * point2[0] +  point2[1] * point2[1]));
 
         // while (points.length > k) points.remove();
 
@@ -22,9 +23,11 @@ public class Leetcode973 {
     public static void main(String[] args) {
         Leetcode973 leetcode973 = new Leetcode973();
 //        leetcode973.kClosest(new int[][] {{1,3},{-2,2}}, 1);
-        int[] arr = new int[]{1, 2, 3};
-        leetcode973.test(arr);
-
-        System.out.println(arr);
+//        int[] arr = new int[]{1, 2, 3};
+//        leetcode973.test(arr);
+//
+//        System.out.println(arr);
+//        Double d = new Double("13,43d");
+////        new Boolean();
     }
 }
