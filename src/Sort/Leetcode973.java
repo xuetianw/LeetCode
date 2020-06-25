@@ -10,7 +10,9 @@ public class Leetcode973 {
 //
 
 //    public int[][] kClosest(int[][] points, int K) {
-//        Arrays.sort(points, getComparator());
+//        Arrays.sort(points, (point1, point2) ->
+//                (point1[0] * point1[0] + point1[1] * point1[1]) -
+//                        (point2[0] * point2[0] +  point2[1] * point2[1]));
 //
 //        // while (points.length > k) points.remove();
 //
