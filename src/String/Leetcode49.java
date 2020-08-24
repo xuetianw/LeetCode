@@ -1,7 +1,6 @@
 package String;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Leetcode49 {
     boolean is_anagram(String str1, String str2) {
@@ -22,6 +21,26 @@ public class Leetcode49 {
         }
         return true;
     }
+
+    // this is faster
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] arr = str.toCharArray();
+            Arrays.sort(arr);
+            String key = String.valueOf(arr);
+            boolean is_in_list = map.containsKey(key);
+            if (!is_in_list) {
+                List<String> temp = new ArrayList<>();
+                temp.add(str);
+                map.put(key, temp);
+            } else {
+                map.get(key).add(str);
+            }
+        }
+        return new ArrayList<>(map.values());
+    }
+
 
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res_list = new ArrayList<>();
@@ -46,6 +65,6 @@ public class Leetcode49 {
 
     public static void main(String[] args) {
         Leetcode49 leetcode49 = new Leetcode49();
-        leetcode49.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+        leetcode49.groupAnagrams2(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
     }
 }

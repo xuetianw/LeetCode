@@ -1,6 +1,7 @@
 package Tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Leetcode102 {
@@ -17,9 +18,7 @@ public class Leetcode102 {
         List<TreeNode> current_level_list = new ArrayList<>();
         current_level_list.add(root);
 
-        List<Integer> list = new ArrayList<>();
-        list.add(root.val);
-        res.add(list);
+        res.add(Arrays.asList(new Integer[]{root.val}));
 
         while (current_level_list.size() != 0) {
             List<TreeNode> temp_list = new ArrayList<>();

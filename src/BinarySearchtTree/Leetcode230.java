@@ -1,6 +1,6 @@
 package BinarySearchtTree;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 //TODO
 public class Leetcode230 {
@@ -10,27 +10,30 @@ public class Leetcode230 {
         TreeNode right;
         TreeNode(int x) { val = x; }
     }
-    void inorder(PriorityQueue pq, TreeNode root, int k) {
+
+
+    void inorder(int[] arr, TreeNode root, int k) {
         if (root == null) return;
 
-        if (pq.size() < k) {
-            inorder(pq, root.left, k);
-            pq.add(root.val);
-            inorder(pq, root.right, k);
+        inorder(arr, root.left, k);
+
+        if (arr[0]++ == k - 1) {
+            arr[1] = root.val;
+            return;
         }
 
-
-
+        inorder(arr, root.right, k);
     }
 
-    PriorityQueue<Integer> pq = new PriorityQueue<>((num1 ,num2) -> (num2 - num1));
     public int kthSmallest(TreeNode root, int k) {
-
-        inorder(pq, root, k);
-        return pq.poll();
+        int[] arr = new int[2];
+        inorder(arr, root, k);
+        return arr[1];
     }
+
 
     public static void main(String[] args) {
+
         Leetcode230 leetcode230 = new Leetcode230();
 //        leetcode230.kthSmallest()
     }
