@@ -2,11 +2,10 @@ package Stack;
 
 import java.util.Stack;
 
-public class Leetocde20 {
+public class Leetocode20 {
     public boolean isValid(String s) {
-        char[] arr = s.toCharArray();
         Stack<Character> stack = new Stack<>();
-        for (char ch : arr) {
+        for (char ch : s.toCharArray()) {
             if (ch == '(' || ch == '{' || ch == '[') {
                 stack.push(ch);
                 continue;
@@ -18,6 +17,6 @@ public class Leetocde20 {
                     || (ch == '}' && pre_char == '{')))
                 return false;
         }
-        return (stack.size() == 0) ? true : false;
+        return stack.size() == 0;
     }
 }
