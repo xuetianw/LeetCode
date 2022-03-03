@@ -27,4 +27,32 @@ public class Leetcode14 {
 
         return strs[0].substring(0, index + 1);
     }
+
+
+    /*
+
+    way2
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) return "";
+        int i = 0;
+        while (true) {
+            boolean stop = false;
+            if (i == strs[0].length()) {
+                return strs[0].substring(0, i);
+            }
+            char ch = strs[0].charAt(i);
+            for(String str : strs) {
+                if (i == str.length() || ch != str.charAt(i)){
+                    stop = true;
+                    break;
+                }
+            }
+            if (stop) {
+                return strs[0].substring(0, i);
+            }
+            i++;
+        }
+    }
+
+     */
 }
