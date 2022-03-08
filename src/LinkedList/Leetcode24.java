@@ -1,4 +1,4 @@
-package LInkedList;
+package LinkedList;
 
 public class Leetcode24 {
 
