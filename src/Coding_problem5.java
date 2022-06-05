@@ -43,7 +43,31 @@ public class Coding_problem5 {
         return s.substring(start_index, finish_index + 1);
     }
     public static void main(String[] args) {
-        Coding_problem5 temp = new Coding_problem5();
-        System.out.println(temp.longestPalindrome("cbbd"));
+//        Coding_problem5 temp = new Coding_problem5();
+//        System.out.println(temp.longestPalindrome("cbbd"));
+        Integer cellLocation = null;
+        int size = 20;
+        int pcPlayerLocArrInd = 0;
+        Integer[] playerLocArray = new Integer[size];
+
+        for (int i = 0; i < size; i = i + 2) {
+            playerLocArray[i] = i;
+        }
+
+        do {
+            System.out.println(playerLocArray.length + " " + pcPlayerLocArrInd);
+            cellLocation = playerLocArray[pcPlayerLocArrInd++];
+        } while (cellLocation == null && pcPlayerLocArrInd < playerLocArray.length - 1);
+
+
+
+//            CellLocation cellLocation;
+//            do {
+//                System.out.println(playerLocArray.length + " " + pcPlayerLocArrInd);
+//                cellLocation = playerLocArray[pcPlayerLocArrInd++];
+//            } while (cellLocation == null && pcPlayerLocArrInd < playerLocArray.length - 1);
+//
+//            multiPlayerMazeGame.getPcPlayer().setLocation(cellLocation);
+
     }
 }

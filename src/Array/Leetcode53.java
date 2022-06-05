@@ -3,7 +3,7 @@ package Array;
 class Leetcode53 {
     public int maxSubArray(int[] nums) {
         int max_num = nums[0];
-        int temp_sum = nums[0];;
+        int temp_sum = nums[0];
         for (int i = 1; i < nums.length; i++) {
             if (temp_sum <= 0) temp_sum = 0;
             temp_sum += nums[i];
