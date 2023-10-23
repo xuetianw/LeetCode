@@ -3,7 +3,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 
 public class Leetcode349 {
     public int[] intersection(int[] nums1, int[] nums2) {
