@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Leetcode1207 {
+    /*
     public boolean uniqueOccurrences(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int ele : arr) {
@@ -14,6 +15,22 @@ public class Leetcode1207 {
             } else {
                 set.add(count);
             }
+        }
+        return true;
+    }
+     */
+
+
+    // way2
+    public boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        Arrays.stream(arr).forEach(x -> hashMap.put(x, hashMap.getOrDefault(x, 0) + 1));
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+            if (hashSet.contains(entry.getValue())) {
+                return false;
+            }
+            hashSet.add(entry.getValue());
         }
         return true;
     }
