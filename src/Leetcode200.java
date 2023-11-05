@@ -17,15 +17,17 @@ class Leetcode200 {
     }
 
 
-    private int[] has_island(char[][] grid) {
+    private int has_island(char[][] grid) {
+        int count = 0;
         for (int r = 0; r < grid.length; ++r) {
             for (int c = 0; c < grid[0].length; ++c) {
                 if (grid[r][c] == '1') {
-                    return new int[]{r, c};
+                    count++;
+                    dfs(grid, r, c);
                 }
             }
         }
-        return new int[]{-1,-1};
+        return count;
     }
 
     public int numIslands(char[][] grid) {
@@ -33,14 +35,14 @@ class Leetcode200 {
             return 0;
         }
 
-        int num_islands = 0;
-        int[] location = has_island(grid);
-        while(!Arrays.equals (location, new int[]{-1, -1})) {
-            num_islands++;
-            dfs(grid, location[0], location[1]);
-            location = has_island(grid);
-        }
-        return num_islands;
+//        int num_islands = 0;
+//        int[] location = has_island(grid);
+//        while(location != null) {
+//            num_islands++;
+//            dfs(grid, location[0], location[1]);
+//            location = has_island(grid);
+//        }
+        return has_island(grid);
     }
 }
 
