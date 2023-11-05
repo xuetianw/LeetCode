@@ -43,17 +43,19 @@ public class Leetcode215 {
 //        }
 //    }
 
-//    public int findKthLargest(int[] nums, int k) {
-////         Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).mapToInt(x -> x).forEach(x -> System.out.println(x));
-////        return Arrays.stream(nums).limit(k).boxed().sorted(Collections.reverseOrder()).mapToInt(x -> x).toArray()[k - 1];
-////        Arrays.sort(nums, Collections.reverseOrder());
-////        return Arrays.stream(nums).limit(k).sorted().toArray()[k];
-////        Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).limit(5).forEach(System.out::println);
-////        return Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).limit(k).mapToInt(x -> x).toArray()[k - 1];
+    public int findKthLargestV2(int[] nums, int k) {
+//         Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).mapToInt(x -> x).forEach(x -> System.out.println(x));
+//        return Arrays.stream(nums).limit(k).boxed().sorted(Collections.reverseOrder()).mapToInt(x -> x).toArray()[k - 1];
+//        Arrays.sort(nums, Collections.reverseOrder());
+//        return Arrays.stream(nums).limit(k).sorted().toArray()[k];
+//        Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).limit(5).forEach(System.out::println);
 //        return Arrays.stream(nums).limit(k).boxed().sorted(Collections.reverseOrder()).mapToInt(x -> x).toArray()[k - 1];
 
+
+        //last one: this is the correct one
+        return Arrays.stream(nums).boxed().sorted(Collections.reverseOrder()).limit(k).mapToInt(x -> x).toArray()[k - 1];
 //        return 1;
-//    }
+    }
 
     public static void main(String[] args) {
         Leetcode215 leetcode215 = new Leetcode215();
