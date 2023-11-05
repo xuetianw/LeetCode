@@ -12,38 +12,39 @@ public class Leetcode257 {
          TreeNode(int x) { val = x; }
      }
 
-    void append_path(TreeNode root, List<String> list, StringBuilder str) {
-        if (root == null) {}
+    void append_path(TreeNode root, List<String> list, String str) {
+        if (root == null) {return;}
         if (root.left == null && root.right == null) {
-            str.append("->").append(root.val);
-            list.add(str.toString());
+            str += ("->" + root.val);
+            list.add(str);
         } else if (root.left == null) {
-            str.append("->").append(root.val);
+            str += ("->" + root.val);
             append_path(root.right, list, str);
         } else if (root.right == null) {
-            str.append("->").append(root.val);
+            str += ("->" + root.val);
             append_path(root.left, list, str);
         } else {
-            str.append("->").append(root.val);
+            str += ("->" + root.val);
             append_path(root.left, list, str);
             append_path(root.right, list, str);
         }
+
     }
 
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> list = new ArrayList<>();
         if (root == null) return list;
-        StringBuilder str = new StringBuilder("");
-        str.append(root.val);
+        String str = "";
+        str += root.val;
         if (root.left == null && root.right == null) {
-            list.add(str.toString());
+            list.add(str);
             return list;
         }
-        System.out.println("first str :" + str);
+        // System.out.printf("first str %s :", str);
         append_path(root.left, list, str);
-        System.out.println("second str :" + str);
+        // System.out.printf("second str %s :", str);
         append_path(root.right, list, str);
-        System.out.println("third str :" + str);
+        // System.out.printf("third str %s :", str);
         return list;
     }
 }
